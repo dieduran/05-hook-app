@@ -13,12 +13,12 @@ export const SimpleForm = () => {
 
     //cualquier cambio y con corchetes solo la primera vez
     useEffect(() => {
-       console.log('hey!');
+       //console.log('hey!');
     },[]);
 
     // cambio en el formState
     useEffect(() => {
-        console.log('formState!');
+        //console.log('formState!');
      },[formState]);
  
     // cambio en el email (porque esta desest..)
@@ -60,7 +60,8 @@ export const SimpleForm = () => {
                 onChange={handleInputChange}
             />
         </div>
-        <Message/>              
+        {/* //si el name existe va a mostrar el componente mensaje               */}
+        { (name==='123') && <Message/>}   
         </>
     )
 }
