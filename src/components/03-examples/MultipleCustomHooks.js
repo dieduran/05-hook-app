@@ -25,10 +25,9 @@ export const MultipleCustomHooks = () => {
                 </div>
                     )
                 :
-                (
-                <blockquote className="blockquote text-center">
-                    <p className="mb-0">{quote}</p>
-                    <br/>
+                ( //no existe mas el text-right en bootstrap.. ahora es text-end
+                <blockquote className="blockquote text-end"> 
+                    <p className="mb-3">{quote}</p>
                     <footer className="blockquote-footer">{author}</footer>
                 </blockquote>
                 )
