@@ -34,7 +34,8 @@ export const Layout = () => {
                 </p>
             </blockquote>
             <pre>
-                {JSON.stringify( boxSize,null,3)}
+                {/* no se puede como objeto directamente */}
+                {JSON.stringify( boxSize,null,3) } 
             </pre>
             <button className='btn btn-primary' onClick={increment}>
                 Siguiente quote 
