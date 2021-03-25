@@ -10,9 +10,26 @@ const initialState=[{
 }]
 
 export const TodoApp = () => {
-    const [todos] = useReducer(todoReducer, initialState);
+    const [todos,dispatch] = useReducer(todoReducer, initialState);
 
     console.log(todos);
+
+    const handleSubmit=(e) =>{
+        e.preventDefault(); //para que no refresque
+
+        const newTodo = {
+            id: new Date().getTime(),
+            desc: 'Nueva Tarea',
+            done: false
+        };
+
+        const action = {
+            type:'add',
+            payload: newTodo
+        }
+        dispatch(action);
+
+    }
     
     return (
         <div>
@@ -34,9 +51,9 @@ export const TodoApp = () => {
                     </ul>
                 </div>
                 <div className="col-5">
-                    <h4>Agregar TO DO</h4>
+                    <h4>Agregar ToDo</h4>
                     <hr/>
-                    <form>
+                    <form onSubmit={handleSubmit}> 
                         <input
                             type="text"
                             name="description"
@@ -45,6 +62,7 @@ export const TodoApp = () => {
                             autoComplete="off"    
                         />
                         <button
+                            type="submit"
                             className="btn btn-outline-primary col-12" //no funciona mas el btn-block en bootstrap 5
                         >
                             Agregar

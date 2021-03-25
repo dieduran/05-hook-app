@@ -1,11 +1,11 @@
 export const todoReducer = (state=[], action) =>{
 
     switch (action.type) {
-        // case '':
+        case 'add':
             
-        //     break;
+             return [...state, action.payload]; //agregamos al arreglo
     
         default: //se llama cuando se inicializar
-            break;
+            return state;
     }
 }
