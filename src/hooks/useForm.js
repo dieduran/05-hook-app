@@ -3,6 +3,10 @@ import { useState } from "react"
 export const useForm = (initialState={}) => {
     const [values, setValues ] = useState(initialState)
 
+    const reset=()=> {
+        setValues(initialState);
+    }
+
     const handleInputChange=({target})=>{
         //console.log(e.target);
         setValues({
@@ -12,7 +16,7 @@ export const useForm = (initialState={}) => {
     };
 
 
-    return [values, handleInputChange]; //lo vamos a regresar como un arreglo
+    return [values, handleInputChange,reset]; //lo vamos a regresar como un arreglo
     //primero los valores del formulario y despues la funcion
 
 
