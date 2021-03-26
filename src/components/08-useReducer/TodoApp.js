@@ -34,7 +34,6 @@ export const TodoApp = () => {
     }, [todos])
 
     const handleDelete = (todoId) => {
-        //pasamos parametro ( al armar el button)
         //creamos accion
         const action = {
             type:'delete',
@@ -44,6 +43,13 @@ export const TodoApp = () => {
         dispatch(action);
     }
 
+    const handleToggle =(todoId)=>{
+        //lo mismo en un solo paso
+        dispatch({
+            type: 'toggle',
+            payload: todoId
+        });
+    }
     const handleSubmit=(e) =>{
         e.preventDefault(); //para que no refresque
 
@@ -78,7 +84,11 @@ export const TodoApp = () => {
                                 key={todo.id}
                                 className="list-group-item"
                             >
-                                <p className='text-center'>{i+1}. {todo.desc}</p>
+                                <p 
+                                    className={`${todo.done && 'complete'}`}
+                                    onClick={()=>handleToggle(todo.id)}
+                                >{i+1}. {todo.desc}
+                                </p>
                                 <button 
                                     className="btn btn-danger"
                                     onClick={()=>handleDelete(todo.id)}
