@@ -19,9 +19,7 @@ export const TodoAdd = ({handleAddTodo}) => {
 
         handleAddTodo(newTodo);  //uso el dispatch de la funcion del padre
         reset(); //es el tercer parametro del use form
-
     }
-
     return (
         <>
             <h4>Agregar ToDo</h4>
